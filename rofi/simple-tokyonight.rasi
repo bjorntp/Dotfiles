@@ -1,11 +1,25 @@
 * {
   font:   "Iosevka Nerd Font Medium 11";
+  
+  bg        : #282A2E;
+  bgAlt     : #373B41;
+  fg        : #C5C8C6;
+  primary   : #F0C674;
+  alert     : #A54242;
+  disabled  : #707880;
+  text      : #F0C674;
+  red     : #f7768e;
+  green   : #9ece6a;
+  yellow  : #e0af68;
+  blue    : #7aa2f7;
+  magenta : #9a7ecc;
 
-  bg0     : #1a1b26;
-  bg1     : #1f2335;
+  /*
+  bg0     : #373B41;
+  bg1     : #282A2E;
   bg2     : #24283b;
   bg3     : #414868;
-  fg0     : #c0caf5;
+  fg0     : #F0C674;
   fg1     : #a9b1d6;
   fg2     : #737aa2;
   red     : #f7768e;
@@ -14,12 +28,12 @@
   blue    : #7aa2f7;
   magenta : #9a7ecc;
   cyan    : #4abaaf;
-
+  */
   accent: @red;
   urgent: @yellow;
 
   background-color : transparent;
-  text-color       : @fg0;
+  text-color       : white;
 
   margin  : 0;
   padding : 0;
@@ -34,11 +48,11 @@ window {
   location : northwest;
   width    : 280px;
   x-offset : 4px;
-  y-offset : 26px;
+  y-offset : 50px;
 
-  background-color: @bg1;
+  background-color: @bg;
   border: 1px;
-  border-color: @bg3;
+  border-color: @bg;
   border-radius: 6px;
 }
 
@@ -47,7 +61,7 @@ inputbar {
   padding  : 4px 8px;
   children : [ icon-search, entry ];
 
-  background-color: @bg0;
+  background-color: @bg;
 }
 
 icon-search, entry, element-icon, element-text {
@@ -62,7 +76,7 @@ icon-search {
 
 textbox {
   padding          : 4px 8px;
-  background-color : @bg2;
+  background-color : @bgAlt;
 }
 
 listview {
@@ -71,7 +85,7 @@ listview {
   columns      : 1;
   scrollbar    : true;
   fixed-height : false;
-  dynamic      : true;
+ dynamic      : true;
 }
 
 element {
@@ -88,8 +102,9 @@ element normal active {
 }
 
 element selected {
-  text-color       : @bg1;
-  background-color : @accent;
+ text-color       : white;
+ background-color : @bgAlt;
+ border           : 1px;
 }
 
 element selected urgent {
@@ -106,7 +121,6 @@ element-text {
 
 scrollbar {
   handle-width : 4px;
-  handle-color : @fg2;
+  handle-color : white;
   padding      : 0 4px;
 }
-
