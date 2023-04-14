@@ -14,3 +14,5 @@ source ~/.zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f "/home/bjorn/.ghcup/env" ] && source "/home/bjorn/.ghcup/env" # ghcup-env
+
+bindkey "^[[3~" delete-char
