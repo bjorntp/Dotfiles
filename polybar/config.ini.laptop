@@ -50,7 +50,7 @@ separator-foreground = ${colors.disabled}
 
 font-0 = monospace;2
 
-modules-left = xworkspaces xwindow
+modules-left = xworkspaces xwindow 
 modules-right = filesystem pulseaudio bluetooth memory cpu wlan battery date
 
 cursor-click = pointer
@@ -133,31 +133,16 @@ label = %{F#F0C674}BLUETOOTH%{F-} %output%
 exec = ~/.config/polybar/scripts/bluetooth.sh
 click-left = ~/.config/polybar/scripts/bluetooth_toggle.sh
 
-[network-base]
-type = internal/network
-interval = 5
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
-
 [module/wlan]
-inherit = network-base
-interface-type = wireless
-label-connected = %{A1:gnome-control-center wifi:}%{F#F0C674}WIFI%{F-} %essid%%{A}
-label-disconnected = %{A1:gnome-control-center wifi:}%{F#F0c674}WIFI%{F-} DISCONNECTED%{A}
-
-[module/eth]
-inherit = network-base
-interface-type = wired
-label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
+type = custom/script
+tail = true
+label = %{F#F0C674}WIFI%{F-} %output%
+exec = "python ~/.config/polybar/scripts/wlan.py"
 
 [module/battery]
 type = internal/battery
-
 full-at = 99
-
 low-at = 5
-
 battery = BAT0
 adapter = ADP1
 
