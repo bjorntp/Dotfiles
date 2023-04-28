@@ -45,7 +45,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
-	# or left-clicking anywhere into the window while holding the floating modifier.
+# or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
 # start a terminal
@@ -139,6 +139,10 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+# switch to next or previous workspace
+bindsym $mod+Tab workspace next
+bindsym $mod+section workspace prev
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -193,7 +197,7 @@ bindsym $mod+r mode "resize"
 exec "~/.config/polybar/scripts/launch_polybar.sh"
 
 # Wallpaper
-exec "feh --bg-scale /home/bjorn/Pictures/Wallpapers/Trees.jpg"
+exec "feh --bg-scale /home/bjorn/Pictures/Wallpapers/ahus_cropped.jpg"
 
 # Remove label
 default_border pixel 1
@@ -201,7 +205,10 @@ default_floating_border pixel 1
 
 # Print screen
 bindsym Print exec "scrot /home/bjorn/Pictures/Screenshots/%Y%m%d\ Fullscreen.png"
-bindsym shift+Print exec "scrot '/home/bjorn/Pictures/Screenshots/%Y%m%d\ $W' -u.png"
+bindsym Scroll_Lock exec "scrot '/home/bjorn/Pictures/Screenshots/%Y%m%d\ $W.png' -u"
+bindsym Pause exec ~/.config/i3/scripts/screen_clip.sh
+#bindsym Pause exec "scrot -s -e 'xclip -selection clipboard -t image/png -i $f'"
+
 
 # Moving between monitors
 bindsym $mod+o move workspace to output right
@@ -209,3 +216,11 @@ bindsym $mod+i move workspace to output left
 
 # Redshift color (fluxliknande)
 exec "redshift -l 55:13"
+
+# Picom for transparacy
+exec "picom -b"
+
+# Default float for some program
+# for_window [class="" instance=""] floating enable
+for_window [class="Steam"] floating enable
+for_window [class="Steam" title="^Steam$"] floating disable
