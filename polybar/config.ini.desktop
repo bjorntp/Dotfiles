@@ -51,6 +51,8 @@ separator-foreground = ${colors.disabled}
 
 font-0 = monospace;2
 
+;tray-position = right 
+tray-position = ${env:BARPOS:}
 modules-left = xworkspaces xwindow
 modules-right = filesystem pulseaudio bluetooth memory cpu eth date
 
