@@ -47,3 +47,9 @@ font:
     style: Bold Italic
 
   size: 9
+
+
+# New window in same directory
+key_bindings:
+  - { key: Return, mods: Control|Shift, action: spawnNewInstance }
+
