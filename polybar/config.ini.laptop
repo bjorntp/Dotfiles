@@ -58,13 +58,7 @@ cursor-scroll = ns-resize
 
 enable-ipc = true
 
-; tray-position = right
-
-; wm-restack = generic
-; wm-restack = bspwm
-; wm-restack = i3
-
-; override-redirect = true
+tray-position = right
 
 [module/xworkspaces]
 type = internal/xworkspaces
@@ -129,7 +123,7 @@ label = %percentage:2%%
 [module/bluetooth]
 type = custom/script
 tail = true
-label = %{F#F0C674}BLUETOOTH%{F-} %output%
+label = %{F#F0C674}BT%{F-} %output%
 exec = ~/.config/polybar/scripts/bluetooth.sh
 click-left = ~/.config/polybar/scripts/bluetooth_toggle.sh
 
