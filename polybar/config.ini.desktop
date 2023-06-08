@@ -24,6 +24,7 @@ primary = #F0C674
 secondary = #8ABEB7
 alert = #A54242
 disabled = #707880
+visible = #0096FF
 
 [bar/mybar]
 monitor = ${env:MONITOR:}
@@ -75,6 +76,8 @@ label-unfocused = %name%
 label-unfocused-padding = 1
 
 label-visible = %name%
+label-visible-background = ${colors.background-alt}
+label-visible-underline = ${colors.visible}
 label-visible-padding = 1
 
 label-urgent = %name%
