@@ -111,6 +111,7 @@ label-volume = %percentage%%
 label-muted = muted
 label-muted-foreground = ${colors.disabled}
 
+click-right = pavucontrol
 [module/memory]
 type = internal/memory
 interval = 2
