@@ -197,30 +197,32 @@ bindsym $mod+r mode "resize"
 exec "~/.config/polybar/scripts/launch_polybar.sh"
 
 # Wallpaper
-exec "feh --bg-scale /home/bjorn/Pictures/Wallpapers/ahus_cropped.jpg"
+exec "feh --bg-scale /home/bjorn/Pictures/Wallpaper/SBKjnxm.jpeg"
 
 # Remove label
 default_border pixel 1
 default_floating_border pixel 1
 
 # Print screen
-bindsym Print exec "scrot /home/bjorn/Pictures/Screenshots/%Y%m%d\ Fullscreen.png"
-bindsym Scroll_Lock exec "scrot '/home/bjorn/Pictures/Screenshots/%Y%m%d\ $W.png' -u"
-bindsym Pause exec ~/.config/i3/scripts/screen_clip.sh
+#bindsym Print exec "scrot /home/bjorn/Pictures/Screenshots/%Y%m%d\ Fullscreen.png"
+#bindsym Scroll_Lock exec "scrot '/home/bjorn/Pictures/Screenshots/%Y%m%d\ $W.png' -u"
+#bindsym Pause exec ~/.config/i3/scripts/screen_clip.sh
 #bindsym Pause exec "scrot -s -e 'xclip -selection clipboard -t image/png -i $f'"
+bindsym Print exec "spectacle"
 
 
 # Moving between monitors
 bindsym $mod+o move workspace to output right
 bindsym $mod+i move workspace to output left
 
-# Redshift color (fluxliknande)
-exec "redshift -l 55:13"
-
 # Picom for transparacy
 exec "picom -b"
 
+# Dunst for notifications
+exec "dunst"
+
 # Default float for some program
 # for_window [class="" instance=""] floating enable
-for_window [class="Steam"] floating enable
+for_window [class="Steam"] floating disable
 for_window [class="Steam" title="^Steam$"] floating disable
+for_window [class="spectacle"] floating enable
