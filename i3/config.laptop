@@ -205,6 +205,9 @@ exec "setxkbmap -layout se"
 # Wallpaper
 exec "feh --bg-scale /home/bjorn/Pictures/Wallpapers/twotrees.jpg"
 
+# Picom for transparacy
+exec "picom -b"
+
 # Remove label
 default_border pixel 1
 default_floating_border pixel 1
