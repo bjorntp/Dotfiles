@@ -31,6 +31,10 @@ floating_modifier $mod
 	# or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+# lock
+set $i3lockwall sh ~/.config/i3/i3lockscript.sh
+bindsym $mod+Shift+l exec --no-startup-id $i3lockwall
+
 # start a alacritty
 bindsym $mod+Return exec alacritty
 
@@ -172,10 +176,10 @@ exec "~/.config/polybar/scripts/launch_polybar.sh"
 exec "setxkbmap -layout se"
 
 # Wallpaper
-exec "feh --bg-scale /home/bjorn/Pictures/trees.png"
+exec "feh --bg-scale /home/bjorn/Pictures/wallpaper.jpg"
 
 # Autostart nextcloud
-exec "nextcloud"
+#exec "nextcloud"
 
 # Picom for transparacy
 exec "picom -b"
