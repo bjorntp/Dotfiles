@@ -11,7 +11,6 @@ shadow-offset-x = -7;
 
 shadow-offset-y = -7;
 
- shadow-exclude = []
 shadow-exclude = [
   "name = 'Notification'",
   "class_g = 'Conky'",
@@ -129,7 +128,7 @@ blur-background-exclude = [
 #
 #backend = "glx";
 xrender-sync-fence = true;
-backend = "xrender";
+#backend = "xrender";
 
 # Enable/disable VSync.
 # vsync = false
@@ -339,6 +338,6 @@ wintypes:
   tooltip = { fade = true; shadow = true; opacity = 0.75; focus = true; full-shadow = false; };
   dock = { shadow = false; clip-shadow-above = true; }
   dnd = { shadow = false; }
-  popup_menu = { opacity = 0.8; }
-  dropdown_menu = { opacity = 0.8; }
+  popup_menu = { opacity = 1.0; shadow = false; full-shadow = false; focus = false; }
+  dropdown_menu = { opacity = 1.0; }
 };
