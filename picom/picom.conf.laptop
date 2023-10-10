@@ -11,7 +11,6 @@ shadow-offset-x = -7;
 
 shadow-offset-y = -7;
 
- shadow-exclude = []
 shadow-exclude = [
   "name = 'Notification'",
   "class_g = 'Conky'",
@@ -127,17 +126,18 @@ blur-background-exclude = [
 # Specify the backend to use: `xrender`, `glx`, or `xr_glx_hybrid`.
 # `xrender` is the default one.
 #
-# backend = "glx"
+#backend = "glx";
+xrender-sync-fence = true;
 #backend = "xrender";
 
 # Enable/disable VSync.
-vsync = false
-# vsync = true;
+# vsync = false
+vsync = true;
 
 # Enable remote control via D-Bus. See the *D-BUS API* section below for more details.
 # dbus = false
 
-# Try to detect WM windows (a non-override-redirect window with no
+# Try to detect WM windows (a non-oveeride-eedirect window with no
 # child that has 'WM_STATE') and mark them as active.
 #
 # mark-wmwin-focused = false
@@ -338,6 +338,6 @@ wintypes:
   tooltip = { fade = true; shadow = true; opacity = 0.75; focus = true; full-shadow = false; };
   dock = { shadow = false; clip-shadow-above = true; }
   dnd = { shadow = false; }
-  popup_menu = { opacity = 0.8; }
-  dropdown_menu = { opacity = 0.8; }
+  popup_menu = { opacity = 1.0; shadow = false; full-shadow = false; focus = false; }
+  dropdown_menu = { opacity = 1.0; }
 };
