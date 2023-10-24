@@ -66,12 +66,14 @@ tray-position = right
 
 [module/light]
 type = custom/script
-tail = true
-interval = 1
+tail =  true
 label = %{F#F0C674} %{F-}%output% 
+
 exec = "~/.config/polybar/scripts/brightness.sh display"
+
 scroll-up = "~/.config/polybar/scripts/brightness.sh up"
 scroll-down = "~/.config/polybar/scripts/brightness.sh"
+
 [module/xworkspaces]
 type = internal/xworkspaces
 
