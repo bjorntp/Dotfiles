@@ -1,24 +1,25 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ "$1" = "status" ]; then
-	if [ "$(systemctl is-active "bluetooth.service")" = "active" ]; then
-		if bluetoothctl show | grep -q "Powered: yes"; then
-			if [ "$(bluetoothctl devices Connected | wc -l)" = "0" ]; then
-				echo ON
-			else
-				echo CONNECTED
-			fi
-		else
-			echo OFF
+if [ "$1" = "display" ]; then
+
+	brightness_file="/sys/class/backlight/intel_backlight/brightness"
+	previous_brightness=$(cat "$brightness_file")
+
+	percent=$(bc <<<"scale=0; 100 * $previous_brightness / 120000")
+	echo "$percent%"
+
+	while (inotifywait -qe modify "$brightness_file" >/dev/null); do
+		current_brightness=$(cat $brightness_file)
+		if [ "$current_brightness" != "$previous_brightness" ]; then
+			percent=$(bc <<<"scale=0; 100 * $current_brightness / 120000")
+			echo "$percent%"
+			previous_brightness="$current_brightness"
 		fi
-	else
-		echo 'SERVICE DISABLED'
-	fi
-	sleep 1
+	done
 else
-	if bluetoothctl show | grep -q "Powered: no"; then
-		bluetoothctl power on
+	if [ "$1" = "up" ]; then
+		brightnessctl s +5%
 	else
-		bluetoothctl power off
+		brightnessctl s 5%-
 	fi
 fi
