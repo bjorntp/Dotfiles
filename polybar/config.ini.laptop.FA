@@ -1,21 +1,3 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
-;==========================================================
-
 [colors]
 background = #282A2E 
 background-alt = #373B41
@@ -29,8 +11,6 @@ disabled = #707880
 width = 100%
 height = 24pt
 radius = 6
-
-;  dpi = 96
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -52,10 +32,11 @@ font-0 = monospace;2
 font-1 = Font Awesome 6 Free;2
 font-2 = Font Awesome 6 Brands;2
 font-3 = Font Awesome 6 Pro;2
+font-4 = Jetbrains Mono Nerd;2
 
 modules-left = xworkspaces xwindow
 modules-center = date 
-modules-right = light pulseaudio bluetooth network battery
+modules-right = backlight pulseaudio bluetooth network battery
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -64,13 +45,11 @@ enable-ipc = true
 
 tray-position = right
 
-[module/light]
+[module/backlight]
 type = custom/script
 tail =  true
 label = %{F#F0C674} %{F-}%output% 
-
 exec = "~/.config/polybar/scripts/brightness.sh display"
-
 scroll-up = "~/.config/polybar/scripts/brightness.sh up"
 scroll-down = "~/.config/polybar/scripts/brightness.sh"
 
@@ -97,76 +76,38 @@ label-empty-padding = 1
 type = internal/xwindow
 label = %title:0:60:...%
 
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-
-label-mounted = %{F#F0C674}SSD%{F-} %percentage_used%%
-
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.disabled}
-
 [module/pulseaudio]
 type = internal/pulseaudio
-
-; format-volume-prefix = "VOL "
-; format-volume-prefix-foreground = ${colors.primary}
 format-volume = %{F#F0C674}<ramp-volume> %{F-}<label-volume>
 ramp-volume-0 = 🔈
 ramp-volume-1 = 🔉
 ramp-volume-2 = 🔊
-
 label-volume = %percentage%%
-
 label-muted = 🔇 
 label-muted-foreground = ${colors.disabled}
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = "RAM "
-format-prefix-foreground = ${colors.primary}
-label = %percentage_used:2%%
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = "CPU "
-format-prefix-foreground = ${colors.primary}
-label = %percentage:2%%
 
 [module/bluetooth]
 type = custom/script
 tail = true
 label = %{F#F0C674}%{F-} %output%
-exec = ~/.config/polybar/scripts/bluetooth.sh
-click-left = ~/.config/polybar/scripts/bluetooth_toggle.sh
+exec = ~/.config/polybar/scripts/bluetooth.sh status
+click-left = ~/.config/polybar/scripts/bluetooth.sh
 
 [module/network]
 type = internal/network
 interface = wlp2s0
 interface-type = wireless
-
+click-left = "alacritty -e nmtui"
 format-connected = %{F#F0C674}<ramp-signal> <label-connected>
 ramp-signal-0 = 
-ramp-signal-1 = 
+ramp-signal-1 = 
 ramp-signal-2 = 
-ramp-signal-3 = 
+ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-5 = 
 label-connected = %{F-}%essid%
-
 format-disconnected = <label-disconnected>
 label-disconnected = %{F#F0C674}
-
-[module/wlan]
-type = custom/script
-tail = true
-label = %{F#F0C674}WIFI%{F-} %output%
-exec = "python ~/.config/polybar/scripts/wlan.py"
-click-left = "alacritty -e nmtui"
 
 [module/battery]
 type = internal/battery
@@ -174,32 +115,46 @@ full-at = 99
 low-at = 5
 battery = BAT0
 adapter = ADP1
-
 override-redirect = true
 format-discharging = %{F#F0C674}<ramp-capacity><label-discharging>
-; label-discharging =  %{F#F0C674}BAT%{F-} %percentage%%
 label-discharging =  %{F#F0C674} %{F-}%percentage%%
 format-charging = <label-charging>
 label-charging =  %{F#F0C674}%{F-} %percentage%%
+format-full = <label-full>
+label-full = %{F#F0C674} %{F-}%percentage%%
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 =  
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-;
-format-full = <label-full>
-; label-full = %{F#F0C674}FULL%{F-} %percentage%%
-label-full =  %{F-} %percentage%%
 
 [module/date]
 type = internal/date
-
 interval = 1.0
-
 date = %H:%M
-
-; Optional time format
 time = %H:%M
 date-alt = %A, %d %B %Y
 time-alt = %H:%M:%S
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "󰍛 "
+format-prefix-foreground = ${colors.primary}
+label = %percentage_used:2%%
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+; format-prefix = "󰻠 "
+format-prefix-foreground = ${colors.primary}
+label = 󰻠 %percentage:2%%
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted = %{F#F0C674}/%{F-} %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.disabled}
