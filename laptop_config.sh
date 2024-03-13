@@ -10,16 +10,16 @@ _wallpaper="$HOME/Pictures/"
 
 mkdir -p "$_i3" "$_rofi" "$_rofi_theme" "$_polybar" "$_picom" "$_kitty" "$_wallpaper"
 
-cp -r "./configs/i3/laptop/*" "$_i3"
-cp "./configs/rofi/config.rasi" "$_rofi"
-cp -r "./configs/rofi/themes/*" "$_rofi_theme"
-cp "./configs/kitty/kitty.conf" "$_kitty"
-cp -r "./configs/polybar/laptop/*" "$_polybar"
-cp "./configs/picom/laptop/picom.conf" "$_picom"
-cp "./configs/wallpapers/cat_wall.png" "$_wallpaper"
-cp "./configs/zsh/.zshrc" "~/.zshrc"
+cp -r "configs/i3/laptop/*" "$_i3"
+cp "configs/rofi/config.rasi" "$_rofi"
+cp -r "configs/rofi/themes/*" "$_rofi_theme"
+cp "configs/kitty/kitty.conf" "$_kitty"
+cp -r "configs/polybar/laptop/*" "$_polybar"
+cp "configs/picom/laptop/picom.conf" "$_picom"
+cp "configs/wallpapers/cat_wall.png" "$_wallpaper"
+cp "configs/zsh/.zshrc" "~/.zshrc"
 
-git clone git@github.com:catppuccin/sddm.git
+git clone https://github.com/catppuccin/sddm.git
 sudo cp -r "./sddm/src/catppuccin-mocha" "/usr/share/sddm/themes/" 
 sudo cp "./configs/sddm/sddm.conf" "/etc/sddm.conf"
 sudo rm -r sddm
