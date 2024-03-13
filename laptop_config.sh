@@ -7,6 +7,7 @@ _kitty="$HOME/.config/kitty"
 _polybar="$HOME/.config/polybar"
 _picom="$HOME/.config/picom"
 _wallpaper="$HOME/Pictures/"
+_home="$HOME/"
 
 mkdir -p "$_i3" "$_rofi" "$_rofi_theme" "$_polybar" "$_picom" "$_kitty" "$_wallpaper"
 
@@ -16,8 +17,8 @@ cp -r "configs/rofi/themes/" "$_rofi_theme"
 cp "configs/kitty/kitty.conf" "$_kitty"
 cp -r "configs/polybar/laptop/" "$_polybar"
 cp "configs/picom/laptop/picom.conf" "$_picom"
-cp "configs/wallpapers/cat_wall.png" "$_wallpaper"
-cp "configs/zsh/.zshrc" "~/.zshrc"
+cp "wallpapers/cat_wall.png" "$_wallpaper"
+cp "configs/zsh/.zshrc" "$_home"
 
 git clone https://github.com/catppuccin/sddm.git
 sudo cp -r "./sddm/src/catppuccin-mocha" "/usr/share/sddm/themes/" 
