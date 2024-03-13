@@ -194,7 +194,7 @@ exec "~/.config/polybar/scripts/launch_polybar.sh"
 exec "picom -b"
 
 # Wallpaper
-exec "feh --bg-scale /home/bjorn/Pictures/wallhaven-m3gxg8.png"
+exec "feh --bg-scale /home/bjorn/Pictures/cat_wall.png"
 
 
 # Catpuccin Mocha
