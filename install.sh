@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+read -p "Enter 1 for laptop or 2 for desktop: " type
+
 if [ $type = "1" ]; then
   ./laptop_packages.sh
-elseif [ $type = "2" ]; then
+elif [ $type = "2" ]; then
   ./desktop_packages.sh
 else
   echo "Invalid input, exiting"
@@ -12,7 +14,6 @@ fi
 sudo systemctl enable sddm
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
-read -p "Enter 1 for laptop or 2 for desktop: " type
 sudo chsh -s /bin/zsh $USER
 
 # Variables
@@ -31,14 +32,12 @@ echo "Created directories"
 # Configs
 if [ $type = "1" ]; then
   echo "Running laptop installation"
-  ./laptop_packages.sh
   cp -r "configs/i3/laptop/"* "$_i3" && echo "Copying i3 config"
   cp -r "configs/polybar/laptop/"* "$_polybar" && echo  "Copying polybar config and scripts"
   cp "configs/picom/laptop/picom.conf" "$_picom" && echo  "Copying picom config"
   sudo cp "./configs/xorg.conf.d/laptop/40-libinput.conf" "/usr/share/X11/xorg.conf.d/40-libinput.conf"
 elif [ $type = "2" ]; then
   echo "Running desktop installation"
-  ./desktop_packages.sh
   cp -r "configs/i3/desktop/"* "$_i3" && echo "Copying i3 config"
   cp -r "configs/polybar/desktop/"* "$_polybar" && echo  "Copying polybar config and scripts"
   cp "configs/picom/desktop/picom.conf" "$_picom" && echo  "Copying picom config"
