@@ -44,7 +44,7 @@ elif [ $type = "2" ]; then
   sudo cp "./configs/xorg.conf.d/desktop/40-libinput.conf" "/usr/share/X11/xorg.conf.d/40-libinput.conf"
 fi
 
-cp "configs/kitty/kitty.conf" "$_kitty" && echo  "Copying kitty config"
+cp "configs/kitty/"* "$_kitty" && echo  "Copying kitty config"
 cp "configs/rofi/config.rasi" "$_rofi" && echo "Copying rofi config"
 cp -r "configs/rofi/themes/"* "$_rofi_theme" && echo  "Copying rofi theme"
 cp "wallpapers/cat_wall.png" "$_wallpaper" && echo  "Copying wallpaper"
