@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-sudo chsh -s /bin/zsh $USER
 
 if [ $type = "1" ]; then
   ./laptop_packages.sh
@@ -14,6 +13,7 @@ sudo systemctl enable sddm
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
 read -p "Enter 1 for laptop or 2 for desktop: " type
+sudo chsh -s /bin/zsh $USER
 
 # Variables
 _i3="$HOME/.config/i3"
