@@ -17,12 +17,13 @@ mkdir -p "$_i3" "$_rofi" "$_rofi_theme" "$_polybar" "$_picom" "$_kitty" "$_wallp
 
 cp -r "configs/i3/laptop/"* "$_i3" && echo "Copying i3 config"
 cp "configs/rofi/config.rasi" "$_rofi" && echo "Copying rofi config"
-cp -r "configs/rofi/themes/"* "$_rofi_theme" "Copying rofi theme"
-cp "configs/kitty/kitty.conf" "$_kitty" "Copying kitty config"
-cp -r "configs/polybar/laptop/"* "$_polybar" "Copying polybar config and scripts"
-cp "configs/picom/laptop/picom.conf" "$_picom" "Copying picom config"
-cp "wallpapers/cat_wall.png" "$_wallpaper" "Copying wallpaper"
-cp "configs/zsh/.zshrc" "$_home" "Copying zsh config"
+cp -r "configs/rofi/themes/"* "$_rofi_theme" && echo  "Copying rofi theme"
+cp "configs/kitty/kitty.conf" "$_kitty" && echo  "Copying kitty config"
+cp -r "configs/polybar/laptop/"* "$_polybar" && echo  "Copying polybar config and scripts"
+cp "configs/picom/laptop/picom.conf" "$_picom" && echo  "Copying picom config"
+cp "wallpapers/cat_wall.png" "$_wallpaper" && echo  "Copying wallpaper"
+cp "configs/zsh/.zshrc" "$_home" && echo  "Copying zsh config"
+sudo cp "./configs/xorg.conf.d/laptop/40-libinput.conf" "/usr/share/X11/xorg.conf.d/40-libinput.conf"
 
 git clone https://github.com/catppuccin/sddm.git
 sudo cp -r "./sddm/src/catppuccin-mocha" "/usr/share/sddm/themes/" 
