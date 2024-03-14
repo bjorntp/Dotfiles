@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+sudo systemctl enable sddm
+sudo systemctl enable NetworkManager
+sudo systemctl enable bluetooth
+
 _i3="$HOME/.config/i3"
 _rofi="$HOME/.config/rofi"
 _rofi_theme="$HOME/.local/share/rofi/themes"
