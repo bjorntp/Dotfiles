@@ -54,3 +54,6 @@ git clone https://github.com/catppuccin/sddm.git
 sudo cp -r "./sddm/src/catppuccin-mocha" "/usr/share/sddm/themes/" 
 sudo cp "./configs/sddm/sddm.conf" "/etc/sddm.conf"
 sudo rm -r sddm
+
+sudo pacman -S neofetch
+neofetch
