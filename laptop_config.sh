@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-_i3="$HOME/.config/i3"
-_rofi="$HOME/.config/rofi"
+_i3="$HOME/.config/i3/"
+_rofi="$HOME/.config/rofi/"
 _rofi_theme="$HOME/.local/share/rofi/themes"
 _kitty="$HOME/.config/kitty"
-_polybar="$HOME/.config/polybar"
+_polybar="$HOME/.config/polybar/"
 _picom="$HOME/.config/picom"
 _wallpaper="$HOME/Pictures/"
 _home="$HOME/"
